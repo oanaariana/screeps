@@ -69,7 +69,7 @@ module.exports.loop = function () {
     // iterate over all the spawns
     for (let spawnName in Game.spawns) {
         let spawn = Game.spawns[spawnName];
-        let creepsInRoom = spawn.room.find(FIND_CREEPS);
+        let creepsInRoom = spawn.room.find(FIND_MY_CREEPS);
 
         // count the number of creeps alive for each role in this room
         // _.sum will count the number of properties in Game.creeps filtered by the
@@ -142,7 +142,8 @@ module.exports.loop = function () {
         }
         else {
             // else try to spawn a builder
-            name = spawn.createCustomCreep(energy, 'builder');
+            // name = spawn.createCustomCreep(energy, 'builder');
+            name = -1;
         };
 
         // print name to console if spawning was a success
